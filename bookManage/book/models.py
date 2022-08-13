@@ -21,6 +21,10 @@ class BookInfo(models.Model):
     class Meta:
         db_table = 'bookInfo'
         verbose_name = '书籍管理'
+
+    def __str__(self):
+        return self.name
+
 class PeopleInfo(models.Model):
     name = models.CharField(max_length=20, verbose_name='名称')
     #定一个有序字典
@@ -32,3 +36,5 @@ class PeopleInfo(models.Model):
     class Meta:
         db_table = 'peopleinfo'
         verbose_name = '人物信息'
+    def __str__(self):
+        return self.name
