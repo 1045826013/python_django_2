@@ -23,7 +23,9 @@ class BookInfo(models.Model):
         verbose_name = '书籍管理'
 class PeopleInfo(models.Model):
     name = models.CharField(max_length=20, verbose_name='名称')
-    gender = models.SmallIntegerField( default=0, verbose_name='性别')
+    #定一个有序字典
+    GENDER_CHOICE = ((1,'male'),(2,'female'))
+    gender = models.SmallIntegerField(choices=GENDER_CHOICE, default=0, verbose_name='性别')
     description = models.CharField(max_length=200, null=True, verbose_name='描述信息')
     book = models.ForeignKey(BookInfo, on_delete=models.CASCADE, verbose_name='图书')  # 外键
     is_delete = models.BooleanField(default=False, verbose_name='逻辑删除')
